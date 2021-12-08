@@ -8,16 +8,4 @@ using BenchmarkDotNet.Running;
 
 
 
-var day1Summary = BenchmarkRunner.Run<Day1Benchmark>();
-try
-{
-    if (!Directory.Exists("./Results"))
-    {
-        Directory.CreateDirectory("./Results");
-    }
-    File.WriteAllText("Results/day1.txt", day1Summary.ToString());
-}
-catch (Exception ex)
-{
-    Console.Error.WriteLine(ex.ToString());
-}
+BenchmarkRunner.Run<Day1ExtendedBenchmark>();

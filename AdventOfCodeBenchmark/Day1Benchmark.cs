@@ -27,13 +27,25 @@ namespace AdventOfCodeBenchmark
         [Benchmark]
         public int CountIncreasesWithSelectEnumerated()
         {
-            return Day1SonarSweep.CountIncreasesWithSelect(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesWithSelectEnumerated(InputReader.ReadLines(1));
         }
         [Benchmark]
         public int CountIncreasesWithSelectFor()
         {
             return Day1SonarSweep.CountIncreasesWithSelectFor(InputReader.ReadLines(1));
         }
+        [Benchmark]
+        public int CountIncreasesWithSelectForSkipAny()
+        {
+            return Day1SonarSweep.CountIncreasesWithSelectForSkipAny(InputReader.ReadLines(1));
+        }
+        //Commented out it's slow
+        // CountIncreasesWithSelectForElementAt | 1,448,091.7 us | 28,668.86 us | 53,139.58 us | 77000.0000 | 33000.0000 | 1000.0000 | 238,425 KB |
+        //[Benchmark]
+        //public int CountIncreasesWithSelectForElementAt()
+        //{
+        //    return Day1SonarSweep.CountIncreasesWithSelectForElementAt(InputReader.ReadLines(1));
+        //}
         [Benchmark]
         public int CountIncreasesAsString()
         {

@@ -56,5 +56,20 @@ namespace AdventOfCode2021.Tests
             var count = Day1SonarSweep.CountIncreasesWithSelectFor(Lines);
             Assert.AreEqual(7, count);
         }
+
+        [TestMethod()]
+        public void CountSumIncreasesWithSelectEnumeratedTest()
+        {
+            var count = Day1SonarSweep.CountSumIncreasesWithSelectEnumerated(Lines);
+            Assert.AreEqual(5, count);
+        }
+
+        [TestMethod()]
+        public void CountSumIncreasesWithSelectCleverEnumerated()
+        {
+            var count = Day1SonarSweep.CountSumIncreasesWithSelectCleverEnumerated(Lines);
+            Assert.AreEqual(5, count);
+        }
+
     }
 }

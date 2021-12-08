@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdventOfCode2021.Utils;
+using AdventOfCode2021.Days;
 
 namespace AdventOfCode2021.Tests
 {

@@ -20,5 +20,10 @@ namespace AdventOfCode2021.Utils
         {
             return int.Parse(str, System.Globalization.CultureInfo.InvariantCulture);
         }
+
+        public static int ToInt(this ReadOnlySpan<char> str)
+        {
+            return int.Parse(str);
+        }
     }
 }

@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# MA0074: Avoid implicit culture-sensitive methods
+dotnet_diagnostic.MA0074.severity = silent

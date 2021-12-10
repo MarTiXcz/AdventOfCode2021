@@ -30,5 +30,11 @@ namespace AdventOfCode2021.Days
             submarine.ImportDiagnosticsNaive(input);
             return submarine.PowerConsumption;
         }
+        public static int CalculateLifeSupport(IEnumerable<string> input)
+        {
+            Submarine submarine = new();
+            submarine.ImportExtendedDiagnostics(input);
+            return submarine.OxygenRating;
+        }
     }
 }

@@ -19,5 +19,13 @@ namespace AdventOfCode2021.Days.Tests
             var consumption = Day3BinaryDiagnostics.CalculateConsumption(lines);
             Assert.AreEqual(198, consumption);
         }
+
+        [TestMethod()]
+        public void CalculateLifeSupportTest()
+        {
+            var lines = InputReader.ReadLinesFromFilename("TestInput/test3.txt");
+            var lifeSupport = Day3BinaryDiagnostics.CalculateLifeSupport(lines);
+            Assert.AreEqual(230, lifeSupport);
+        }
     }
 }

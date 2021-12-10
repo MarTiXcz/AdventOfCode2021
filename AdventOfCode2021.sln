@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2021", "AdventOfCode2021\AdventOfCode2021.csproj", "{12635CC3-1A5F-49C0-A298-9EFFF7ECECDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2021", "AdventOfCode2021\AdventOfCode2021.csproj", "{12635CC3-1A5F-49C0-A298-9EFFF7ECECDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2021Tests", "AdventOfCode2021Tests\AdventOfCode2021Tests.csproj", "{6267B451-60F2-4695-A425-8A033529546D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2021Tests", "AdventOfCode2021Tests\AdventOfCode2021Tests.csproj", "{6267B451-60F2-4695-A425-8A033529546D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCodeBenchmark", "AdventOfCodeBenchmark\AdventOfCodeBenchmark.csproj", "{196C045A-5338-477C-8CB2-40B52E06BF95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCodeBenchmark", "AdventOfCodeBenchmark\AdventOfCodeBenchmark.csproj", "{196C045A-5338-477C-8CB2-40B52E06BF95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2021Runner", "AdventOfCode2021Runner\AdventOfCode2021Runner.csproj", "{123E9B04-66FA-4C7C-9E46-096802FAE66F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2021Runner", "AdventOfCode2021Runner\AdventOfCode2021Runner.csproj", "{123E9B04-66FA-4C7C-9E46-096802FAE66F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F6CD7C5-8522-4F3A-94F8-4532912DB33A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

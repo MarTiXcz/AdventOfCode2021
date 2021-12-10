@@ -8,4 +8,4 @@ using BenchmarkDotNet.Running;
 
 
 
-BenchmarkRunner.Run<Day1ExtendedBenchmark>();
+BenchmarkRunner.Run<Day3Benchmark>();

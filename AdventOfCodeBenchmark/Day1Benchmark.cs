@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2021;
+using AdventOfCode2021.Days;
 using AdventOfCode2021.Utils;
 using BenchmarkDotNet.Attributes;
 using System;

@@ -15,13 +15,13 @@ namespace AdventOfCodeBenchmark
         [Benchmark]
         public void DiagnosticsNaiveSpan() {
             var submarine = new Submarine();
-            submarine.ImportDiagnosticsNaive(InputReader.ReadLines(3));
+            submarine.ImportDiagnosticsNaiveAsSpan(InputReader.ReadLinesForDay(3));
         }
         [Benchmark]
         public void DiagnosticsNaive()
         {
             var submarine = new Submarine();
-            submarine.ImportDiagnosticsNaiveString(InputReader.ReadLines(3));
+            submarine.ImportDiagnosticsNaive(InputReader.ReadLinesForDay(3));
         }
     }
 }

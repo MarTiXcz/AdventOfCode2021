@@ -2,13 +2,19 @@
 
 namespace AdventOfCode2021.Days;
 
-public class Day1SonarSweep
+/*
+ * Day 1 How many measurements are larger than the previous measurement?
+ * https://adventofcode.com/2021/day/1
+ * Extended: 
+ * Consider sums of a three-measurement sliding window. How many sums are larger than the previous sum?
+ */
+public sealed class Day1SonarSweep
 {
     public static void Run()
     {
         try
         {
-            var input = InputReader.ReadLines(day: 1);
+            var input = InputReader.ReadLinesForDay(day: 1);
             var count = CountIncreasesWithSelectEnumerated(input);
             Console.WriteLine($"{count} measuruments are larger than the previous measurements.");
 
@@ -22,10 +28,10 @@ public class Day1SonarSweep
     {
         try
         {
-            var input = InputReader.ReadLines(day: 1);
+            var input = InputReader.ReadLinesForDay(day: 1);
             var count = CountSumIncreasesWithSelectEnumerated(input);
             var count2 = CountSumIncreasesWithSelectCleverEnumerated(input);
-            Console.WriteLine($"{count} sums are larger than the previous sum");
+            Console.WriteLine($"{count} sums are larger than the previous sum.");
             Console.WriteLine($"{count2} sums are larger than the previous sum.");
 
         }
@@ -107,6 +113,7 @@ public class Day1SonarSweep
         }
         return count;
     }
+
     public static int CountIncreasesWithSelectForSkipAny(IEnumerable<string> numbers)
     {
         if (!numbers.Any())
@@ -125,7 +132,7 @@ public class Day1SonarSweep
         return count;
     }
 
-    //IEnumerable.ElementAt is really slow. Use ToArray()
+    // IEnumerable.ElementAt is really slow. Use implementation with ToArray()
     public static int CountIncreasesWithSelectForElementAt(IEnumerable<string> numbers)
     {
         if (!numbers.Any())
@@ -184,6 +191,7 @@ public class Day1SonarSweep
         }
         return count;
     }
+
     //No check for empty enumerable is necessary as for loop is skipped if Length < 2
     public static int CountIncreasesOldSchoolRefactor(IEnumerable<string> numbers)
     {
@@ -206,6 +214,7 @@ public class Day1SonarSweep
     {
         return CountSumIncreasesWithSelect(numbers.Select(n => n.ToInt()).ToArray());
     }
+
     public static int CountSumIncreasesWithSelectCleverEnumerated(IEnumerable<string> numbers)
     {
         return CountSumIncreasesWithSelectClever(numbers.Select(n => n.ToInt()).ToArray());
@@ -234,6 +243,13 @@ public class Day1SonarSweep
 
         return count;
     }
+
+
+    /*
+     * This only checks if the next number is greater than the one we are moving from
+     * 199 200 208 210. One sliding window is 199 200 208. Next one is 200 208 210.
+     * We only need to check if 210 > 199 to know that the sum would be greater.
+     */
     public static int CountSumIncreasesWithSelectClever(int[] numbers)
     {
         if (!numbers.Any())

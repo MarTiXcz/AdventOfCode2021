@@ -17,13 +17,13 @@ namespace AdventOfCodeBenchmark
         [Benchmark]
         public int CountSumIncreasesWithSelectEnumerated()
         {
-            return Day1SonarSweep.CountSumIncreasesWithSelectEnumerated(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountSumIncreasesWithSelectEnumerated(InputReader.ReadLinesForDay(1));
         }
 
         [Benchmark]
         public int CountSumIncreasesWithSelectCleverEnumerated()
         {
-            return Day1SonarSweep.CountSumIncreasesWithSelectCleverEnumerated(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountSumIncreasesWithSelectCleverEnumerated(InputReader.ReadLinesForDay(1));
         }
     }
 }

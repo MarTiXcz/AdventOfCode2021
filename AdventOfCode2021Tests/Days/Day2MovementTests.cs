@@ -1,12 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AdventOfCode2021.Days;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static AdventOfCode2021.Days.Day2Movement;
+﻿using AdventOfCode2021.Core;
+using AdventOfCode2021.Core.Types;
 using AdventOfCode2021.Utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static AdventOfCode2021.Days.Day2Movement;
 
 namespace AdventOfCode2021.Days.Tests
 {
@@ -17,7 +13,7 @@ namespace AdventOfCode2021.Days.Tests
         [DataRow("forward 5", Direction.Forward, 5)]
         public void ReadMoveTest(string moveString, Direction direction, int delta)
         {
-            var move = ReadMove(moveString);
+            var move = Submarine.ReadMove(moveString);
             Assert.AreEqual(direction, move.Direction);
             Assert.AreEqual(delta, move.Delta);
         }

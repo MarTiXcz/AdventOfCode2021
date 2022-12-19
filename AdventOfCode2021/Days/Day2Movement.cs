@@ -1,77 +1,18 @@
-﻿using AdventOfCode2021.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AdventOfCode2021.Core;
+using AdventOfCode2021.Utils;
 
 namespace AdventOfCode2021.Days;
-public class Day2Submarine
+/*
+ * Day 2
+ * https://adventofcode.com/2021/day/2
+ */
+public sealed class Day2Movement
 {
-    public int HorizontalPosition { get; set; } = 0;
-    public int Depth { get; set; } = 0;
-    public int AbsolutePosition => HorizontalPosition * Depth;
-
-    public int Aim { get; set; } = 0;
-    public void Update(Day2Movement.Move move)
-    {
-        switch (move.Direction)
-        {
-            case Day2Movement.Direction.Unknown:
-                break;
-            case Day2Movement.Direction.Forward:
-                HorizontalPosition += move.Delta;
-                break;
-            case Day2Movement.Direction.Up:
-                Depth -= move.Delta;
-                break;
-            case Day2Movement.Direction.Down:
-                Depth += move.Delta;
-                break;
-            default:
-                break;
-        }
-    }
-    public void CorrectedUpdate(Day2Movement.Move move)
-    {
-        switch (move.Direction)
-        {
-            case Day2Movement.Direction.Unknown:
-                break;
-            case Day2Movement.Direction.Forward:
-                HorizontalPosition += move.Delta;
-                Depth += Aim * move.Delta;
-                break;
-            case Day2Movement.Direction.Up:
-                Aim -= move.Delta;
-                break;
-            case Day2Movement.Direction.Down:
-                Aim += move.Delta;
-                break;
-            default:
-                break;
-        }
-    }
-}
-public class Day2Movement
-{
-    public record Move
-    {
-        public Direction Direction;
-        public int Delta;
-    }
-    public enum Direction
-    {
-        Unknown = 0,
-        Forward = 1,
-        Up = 2,
-        Down = 3,
-    }
     public static void Run()
     {
         try
         {
-            var input = InputReader.ReadLines(day: 2);
+            var input = InputReader.ReadLinesForDay(day: 2);
             var position = CalculatePosition(input);
             Console.WriteLine($"Position is {position}");
             var correctedPosition = CalculateCorrectedPosition(input);
@@ -85,47 +26,40 @@ public class Day2Movement
         }
     }
 
+    /*
+     * It seems like the submarine can take a series of commands like forward 1, down 2, or up 3:
+        forward X increases the horizontal position by X units.
+        down X increases the depth by X units.
+        up X decreases the depth by X units.
+        Note that since you're on a submarine, down and up affect your depth, and so they have the opposite result of what you might expect.
+     */
     public static int CalculatePosition(IEnumerable<string> input)
     {
-        Day2Submarine submarine = new();
+        Submarine submarine = new();
         foreach (var line in input)
         {
-            var move = ReadMove(line);
-            submarine.Update(move);
+            var move = Submarine.ReadMove(line);
+            submarine.ChangePosition(move);
         }
         return submarine.AbsolutePosition;
     }
+
+    /*
+     * In addition to horizontal position and depth, you'll also need to track a third value, aim, which also starts at 0. The commands also mean something entirely different than you first thought:
+        down X increases your aim by X units.
+        up X decreases your aim by X units.
+        forward X does two things:
+        It increases your horizontal position by X units.
+        It increases your depth by your aim multiplied by X.
+     */
     public static int CalculateCorrectedPosition(IEnumerable<string> input)
     {
-        Day2Submarine submarine = new();
+        Submarine submarine = new();
         foreach (var line in input)
         {
-            var move = ReadMove(line);
-            submarine.CorrectedUpdate(move);
+            var move = Submarine.ReadMove(line);
+            submarine.ChangePositionWithCorrection(move);
         }
         return submarine.AbsolutePosition;
-    }
-
-    public static Move ReadMove(string line)
-    {
-        var span = line.AsSpan();
-        var direction = CharToDirection(span[0]);
-        var delta = span[span.LastIndexOf(' ')..].ToInt();
-        return new Move() { Direction = direction, Delta = delta };
-    }
-
-    private static Direction CharToDirection(char firstChar)
-    {
-        switch (firstChar)
-        {
-            case 'f':
-                return Direction.Forward;
-            case 'u':
-                return Direction.Up;
-            case 'd':
-                return Direction.Down;
-            default:
-                return Direction.Unknown;
-        }
     }
 }

@@ -14,7 +14,7 @@ namespace AdventOfCode2021.Utils.Tests
         [TestMethod()]
         public void ReadLinesFromFilenameTest()
         {
-            var firstLine = InputReader.ReadLines(1).First();
+            var firstLine = InputReader.ReadLinesForDay(1).First();
             Assert.AreEqual("199", firstLine);
         }
     }

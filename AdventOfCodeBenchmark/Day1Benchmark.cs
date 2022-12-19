@@ -17,28 +17,28 @@ namespace AdventOfCodeBenchmark
         [Benchmark]
         public int CountIncreases()
         {
-            return Day1SonarSweep.CountIncreases(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreases(InputReader.ReadLinesForDay(1));
         }
         [Benchmark]
         public int CountIncreasesWithSelect()
         {
-            return Day1SonarSweep.CountIncreasesWithSelect(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesWithSelect(InputReader.ReadLinesForDay(1));
         }
 
         [Benchmark]
         public int CountIncreasesWithSelectEnumerated()
         {
-            return Day1SonarSweep.CountIncreasesWithSelectEnumerated(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesWithSelectEnumerated(InputReader.ReadLinesForDay(1));
         }
         [Benchmark]
         public int CountIncreasesWithSelectFor()
         {
-            return Day1SonarSweep.CountIncreasesWithSelectFor(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesWithSelectFor(InputReader.ReadLinesForDay(1));
         }
         [Benchmark]
         public int CountIncreasesWithSelectForSkipAny()
         {
-            return Day1SonarSweep.CountIncreasesWithSelectForSkipAny(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesWithSelectForSkipAny(InputReader.ReadLinesForDay(1));
         }
         //Commented out it's slow
         // CountIncreasesWithSelectForElementAt | 1,448,091.7 us | 28,668.86 us | 53,139.58 us | 77000.0000 | 33000.0000 | 1000.0000 | 238,425 KB |
@@ -50,13 +50,13 @@ namespace AdventOfCodeBenchmark
         [Benchmark]
         public int CountIncreasesAsString()
         {
-            return Day1SonarSweep.CountIncreasesAsString(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesAsString(InputReader.ReadLinesForDay(1));
         }
 
         [Benchmark]
         public int CountIncreasesOldSchool()
         {
-            return Day1SonarSweep.CountIncreasesOldSchool(InputReader.ReadLines(1));
+            return Day1SonarSweep.CountIncreasesOldSchool(InputReader.ReadLinesForDay(1));
         }
     }
 }

@@ -173,12 +173,9 @@ public sealed class Day1SonarSweep
         return count;
     }
 
+    //No check for empty enumerable is necessary as for loop is skipped if Length < 2
     public static int CountIncreasesOldSchool(IEnumerable<string> numbers)
     {
-        if (!numbers.Any())
-        {
-            return 0;
-        }
         int count = 0;
         var enumerated = numbers.Select(n => n.ToInt()).ToArray();
         //-1 to avoid index out of bounds
@@ -192,13 +189,12 @@ public sealed class Day1SonarSweep
         return count;
     }
 
-    //No check for empty enumerable is necessary as for loop is skipped if Length < 2
-    public static int CountIncreasesOldSchoolRefactor(IEnumerable<string> numbers)
+    public static int CountIncreasesOldSchoolWithList(IEnumerable<string> numbers)
     {
         int count = 0;
-        var enumerated = numbers.Select(n => n.ToInt()).ToArray();
+        var enumerated = numbers.Select(n => n.ToInt()).ToList();
         //-1 to avoid index out of bounds
-        for (int i = 0; i < enumerated.Length - 1; i++)
+        for (int i = 0; i < enumerated.Count - 1; i++)
         {
             if (enumerated[i] < enumerated[i + 1])
             {

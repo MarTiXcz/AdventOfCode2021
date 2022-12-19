@@ -58,5 +58,11 @@ namespace AdventOfCodeBenchmark
         {
             return Day1SonarSweep.CountIncreasesOldSchool(InputReader.ReadLinesForDay(1));
         }
+
+        [Benchmark]
+        public int CountIncreasesOldSchoolWithList()
+        {
+            return Day1SonarSweep.CountIncreasesOldSchoolWithList(InputReader.ReadLinesForDay(1));
+        }
     }
 }
